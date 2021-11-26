@@ -1,11 +1,84 @@
-# Sample Snack app
+# Project UI MusicApp 
+> Design the music player application interface according to the available template
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+[Template Music](https://assets.materialup.com/uploads/9253830c-3386-4edf-8db6-3412543be8d1/preview.png)
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+### Installation && Usage
+The application is run online on the website https://snack.expo.dev/ <br>
+- Step 1: create an expo account to run the app demo <br>
+- Step 2: choose the interface to demo as web, iphone .. or your personal phone
+- Step 3: Practical experience with UI Music (clicking bottom tab will move to new page and bottom menus will be active)
+### Some pictures are in the app 
+- [Images demo](https://lh3.googleusercontent.com/proxy/gW6BstQAglyyb7DqFPBLrGyOXM9k7aTAREXtx3PnFzMYLKVveb2pje2xJ7RpmZ2TVRhw3o9qoW79Cp1OeOTtKiLJzD-ZCov4NSBYIfDjx7JCUB2H8_M)
+- [Videos demo](https://dbk.vn/uploads/ckfinder/images/tin-tuc-1/phim-hanh-dong-3.jpg)
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+### View code in Screen
+- HomeScreen 
+```php
+const HomeScreen =()=>{
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+  const renderItem =({item})=>{
+    return (
+       <View>
+        <MusicItem 
+        song = {item.song} 
+        iconHeart = {item.iconHeart} 
+        iconPlay = {item.iconPlay}
+        images= {item.img}
+        size = {item.size}
+        duration = {item.duration}
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+        />
+        </View>
+    )
+  }
+  return (
+
+    <View style={styles.container}>
+      <FlatList
+        data={DATA}
+       renderItem={renderItem}
+        keyExtractor ={(item) => item.id}
+        />
+    </View>
+  )
+}
+export default HomeScreen
+```
+
+- VideoScreen
+```php
+const VideoScreen =()=>{
+
+  const renderItem =({item})=>{
+    return (
+       <View>
+        <VideoItem 
+        video = {item.video} 
+        iconHeart = {item.iconHeart} 
+        iconMusic = {item.iconMusic}
+        images= {item.imgVideo}
+        size = {item.size}
+        duration = {item.duration}
+
+        />
+        </View>
+    )
+  }
+  return (
+
+    <View style={styles.container}>
+      <FlatList
+        data={DATA}
+       renderItem={renderItem}
+        keyExtractor ={(item) => item.id}
+        />
+    </View>
+  )
+}
+export default VideoScreen
+```
+## Result on completion
+![Screenshot](https://files.fm/thumb.php?i=5qbehr6pe)
+
+
